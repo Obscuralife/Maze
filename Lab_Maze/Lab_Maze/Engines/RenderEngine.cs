@@ -63,7 +63,7 @@ namespace Lab_Maze
         public static void RenderMaze(MazeField mazeField)
         {
             Yellow();
-            Generator.GenerateMaze(mazeField, Player.GetPlayer());
+            Generator.GenerateMaze(mazeField);
             Console.CursorLeft = CurrentConsoleCursorPosition.Column + 1;
             Console.CursorTop = CurrentConsoleCursorPosition.Row + 1;
 
@@ -85,6 +85,12 @@ namespace Lab_Maze
                                 break;
                             }
                         case "Wall":
+                            {
+                                Console.ForegroundColor = current.Color;
+                                Console.Write(current.Symbol);
+                                break;
+                            }
+                        case "Road":
                             {
                                 Console.ForegroundColor = current.Color;
                                 Console.Write(current.Symbol);

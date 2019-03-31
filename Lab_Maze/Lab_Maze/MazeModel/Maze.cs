@@ -14,7 +14,7 @@ namespace Lab_Maze
         private static Player player;
         private static MazeField mazeField;
 
-        public Maze(int heigth, int width)
+        public Maze(int heigth = 5, int width = 5)
         {
             Heigth = heigth;
             Width = width;
