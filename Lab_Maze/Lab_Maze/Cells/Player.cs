@@ -2,32 +2,30 @@
 
 namespace Lab_Maze
 {
-    internal class Player : Cell
+    public class Player : ICell
     {
-        public struct PlayerPosition
-        {
-            public int x;
-            public int y;
-        }
-        public  static PlayerPosition playerPosition { get; set; }
-        private static Player @this;
         #region SingleTon
         private Player()
-        {
-            Symbol = '@';
-            Color = ConsoleColor.DarkRed;
-            Name = "Player";
-            IsVisited = true;
-        }
+        { }
+
+
         public static Player GetPlayer()
         {
             if (@this is null)
             {
                 @this = new Player();
+                Generator.GeneratePlayerPosition(@this);
             }
             return @this;
         }
         #endregion
+
+        private static Player @this;
+        public char Symbol => '@';
+        public ConsoleColor Color => ConsoleColor.Red;
+        public string Name => "Player";
+        public int X { get; set; }
+        public int Y { get; set; }
 
 
 

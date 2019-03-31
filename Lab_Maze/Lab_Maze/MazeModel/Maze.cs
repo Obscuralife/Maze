@@ -8,25 +8,28 @@ namespace Lab_Maze
 {
     internal class Maze
     {
+        public ICell[,] cells;
         public static int Heigth { get; private set; }
         public static int Width { get; private set; }
-
-        private static Player player;
-        private static MazeField mazeField;
+        
+        public static Player player { get; private set; }
+        private static Area area;
 
         public Maze(int heigth = 5, int width = 5)
         {
+            cells = new ICell[heigth, width];
             Heigth = heigth;
             Width = width;
+            area = Area.GetMazeField(heigth, width);            
             player = Player.GetPlayer();
-            mazeField = MazeField.GetMazeField(heigth, width);            
+            cells[player.Y, player.X] = player as ICell;
         }
 
         public void Play()
         {
             RenderEngine.RenderRules();
-            RenderEngine.RenderArea();
-            RenderEngine.RenderMaze(mazeField);
+            RenderEngine.RenderArea(area);
+            RenderEngine.RenderMaze(this);
         }
 
 

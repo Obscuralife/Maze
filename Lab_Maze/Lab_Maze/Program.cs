@@ -10,8 +10,7 @@ namespace Lab_Maze
     {
         static void Main(string[] args)
         {
-            var maze = new Maze(10, 10);
-            maze.Play();
+            new Maze(10, 10).Play();
             Console.ReadLine();
         }
     }

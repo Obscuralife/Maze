@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace Lab_Maze.Cells
 {
-    class Wall : Cell
+    class Wall : ICell
     {
-        public Wall()
-        {
-            IsVisited = true;
-        }
+        public char Symbol => '#';
+        public ConsoleColor Color => ConsoleColor.Yellow;
+        public string Name => "Wall";
+        public int X { get; set; }
+        public int Y { get; set; }
     }
 }

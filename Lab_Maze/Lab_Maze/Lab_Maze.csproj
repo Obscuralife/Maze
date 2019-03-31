@@ -43,12 +43,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Cells\Cell.cs" />
+    <Compile Include="Cells\ICell.cs" />
+    <Compile Include="Cells\Coin.cs" />
     <Compile Include="Cells\Road.cs" />
     <Compile Include="Cells\Wall.cs" />
     <Compile Include="Engines\Generator.cs" />
     <Compile Include="MazeModel\Maze.cs" />
-    <Compile Include="MazeModel\MazeField.cs" />
+    <Compile Include="MazeModel\Area.cs" />
     <Compile Include="Cells\Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

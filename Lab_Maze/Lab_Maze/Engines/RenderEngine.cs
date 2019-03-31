@@ -4,12 +4,14 @@ namespace Lab_Maze
 {
     internal static class RenderEngine
     {
+        #region CursorPosition
         private struct CursorPosition
         {
             public int Row { get; set; }
             public int Column { get; set; }
         }
         private static CursorPosition CurrentConsoleCursorPosition;
+        #endregion
 
         private static void Red() => Console.ForegroundColor = ConsoleColor.Red;
         private static void Yellow() => Console.ForegroundColor = ConsoleColor.Yellow;
@@ -35,20 +37,20 @@ namespace Lab_Maze
             Console.ResetColor();
         }
 
-        public static void RenderArea()
+        public static void RenderArea(Area area)
         {
             CurrentConsoleCursorPosition.Column = Console.CursorLeft;
             CurrentConsoleCursorPosition.Row = Console.CursorTop;
             Green();
-            for (int i = 0; i < MazeField.Heigth; i++)
+            for (int i = 0; i < area.Heigth; i++)
             {
-                for (int k = 0; k < MazeField.Width; k++)
+                for (int k = 0; k < area.Width; k++)
                 {
-                    if (i == 0 || i == MazeField.Heigth - 1)
+                    if (i == 0 || i == area.Heigth - 1)
                     {
                         Console.Write('#');
                     }
-                    else if (k == 0 || k == MazeField.Width - 1)
+                    else if (k == 0 || k == area.Width - 1)
                     {
                         Console.Write('#');
                     }
@@ -60,18 +62,18 @@ namespace Lab_Maze
                 Console.WriteLine();
             }
         }
-        public static void RenderMaze(MazeField mazeField)
+        public static void RenderMaze(Maze maze)
         {
             Yellow();
-            Generator.GenerateMaze(mazeField);
+            Generator.GenerateMaze(maze);
             Console.CursorLeft = CurrentConsoleCursorPosition.Column + 1;
             Console.CursorTop = CurrentConsoleCursorPosition.Row + 1;
 
-            for (int rows = 0; rows < mazeField.cells.GetLength(0); rows++)
+            for (int rows = 0; rows < maze.cells.GetLength(0); rows++)
             {
-                for (int columns = 0; columns < mazeField.cells.GetLength(1); columns++)
+                for (int columns = 0; columns < maze.cells.GetLength(1); columns++)
                 {
-                    var current = mazeField.cells[rows, columns];
+                    var current = maze.cells[rows, columns];
                     if (current is null)
                     {
                         Console.Write('_');
