@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Lab_Maze
@@ -29,7 +30,7 @@ namespace Lab_Maze
         {
             RenderEngine.RenderRules();
             RenderEngine.RenderArea(area);
-            RenderEngine.RenderMaze(this);
+            new Thread(act => RenderEngine.RenderMaze(this)).Start();
         }
 
 

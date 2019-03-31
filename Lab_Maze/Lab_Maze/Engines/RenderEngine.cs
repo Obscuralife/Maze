@@ -41,7 +41,7 @@ namespace Lab_Maze
         {
             CurrentConsoleCursorPosition.Column = Console.CursorLeft;
             CurrentConsoleCursorPosition.Row = Console.CursorTop;
-            Green();
+            DarkCyan();
             for (int i = 0; i < area.Heigth; i++)
             {
                 for (int k = 0; k < area.Width; k++)
@@ -74,10 +74,7 @@ namespace Lab_Maze
                 for (int columns = 0; columns < maze.cells.GetLength(1); columns++)
                 {
                     var current = maze.cells[rows, columns];
-                    if (current is null)
-                    {
-                        Console.Write('_');
-                    }
+                    
                     switch (current?.Name)
                     {
                         case "Player":
@@ -93,6 +90,12 @@ namespace Lab_Maze
                                 break;
                             }
                         case "Road":
+                            {
+                                Console.ForegroundColor = current.Color;
+                                Console.Write(current.Symbol);
+                                break;
+                            }
+                        case "Coin":
                             {
                                 Console.ForegroundColor = current.Color;
                                 Console.Write(current.Symbol);

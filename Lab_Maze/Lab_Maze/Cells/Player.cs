@@ -7,8 +7,6 @@ namespace Lab_Maze
         #region SingleTon
         private Player()
         { }
-
-
         public static Player GetPlayer()
         {
             if (@this is null)
