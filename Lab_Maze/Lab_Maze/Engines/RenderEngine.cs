@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Lab_Maze.Engines;
+using System;
 
 namespace Lab_Maze
 {
@@ -65,6 +66,11 @@ namespace Lab_Maze
         public static void RenderMaze(Maze maze)
         {
             Yellow();
+            if (GameEngine.Score > 0)
+            {
+                Console.CursorTop += 2;
+                Console.WriteLine($"Score {GameEngine.Score}");
+            }
             Console.CursorLeft = CurrentConsoleCursorPosition.Column + 1;
             Console.CursorTop = CurrentConsoleCursorPosition.Row + 1;
            
