@@ -49,7 +49,6 @@ namespace Lab_Maze
 
             player.X = x;
             player.Y = y;
-            player.IsGenerated = true;
         }
 
         public static void GenerateMaze(Maze maze)

@@ -5,7 +5,7 @@ namespace Lab_Maze.Engines
 {
     static class GameEngine
     {
-        public static int Score { get; private set; }
+        public static int? Score { get; private set; }
         public static bool WasNewPlayerGenerated { get; private set; } = true;
 
         public static void ButtonHandler(Maze maze)
@@ -32,10 +32,10 @@ namespace Lab_Maze.Engines
                                 Generator.GeneratePlayerPosition(player);
                                 maze.cells[player.Y, player.X] = player;
                                 maze.GenerateAgain();
-                                Score = 0;
-                            }
+                                }
                             RenderEngine.RenderMaze(maze);
                             WasNewPlayerGenerated = false;
+                            Score = 0;
                             break;
                         }
                     case ConsoleKey.W:

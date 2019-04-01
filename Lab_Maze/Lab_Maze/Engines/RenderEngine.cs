@@ -66,7 +66,7 @@ namespace Lab_Maze
         public static void RenderMaze(Maze maze)
         {
             Yellow();
-            if (GameEngine.Score > 0)
+            if (GameEngine.Score != null)
             {
                 Console.CursorTop += 2;
                 Console.WriteLine($"Score {GameEngine.Score}");
@@ -80,7 +80,7 @@ namespace Lab_Maze
                 {
                     var current = maze.cells[rows, columns];
                     
-                    switch (current?.Name)
+                    switch (current.Name)
                     {
                         case "Player":
                             {
@@ -114,7 +114,6 @@ namespace Lab_Maze
                 Console.WriteLine();
                 Console.CursorLeft += 1;
             }
-            Maze.player.IsGenerated = false;
         }
     }
 }

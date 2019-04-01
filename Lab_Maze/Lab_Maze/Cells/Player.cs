@@ -24,9 +24,5 @@ namespace Lab_Maze
         public string Name => "Player";
         public int X { get; set; }
         public int Y { get; set; }
-        public bool IsGenerated { get; set; }
-
-
-
     }
 }
