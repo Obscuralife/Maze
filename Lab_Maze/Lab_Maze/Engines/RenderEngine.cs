@@ -65,10 +65,9 @@ namespace Lab_Maze
         public static void RenderMaze(Maze maze)
         {
             Yellow();
-            Generator.GenerateMaze(maze);
             Console.CursorLeft = CurrentConsoleCursorPosition.Column + 1;
             Console.CursorTop = CurrentConsoleCursorPosition.Row + 1;
-
+           
             for (int rows = 0; rows < maze.cells.GetLength(0); rows++)
             {
                 for (int columns = 0; columns < maze.cells.GetLength(1); columns++)
@@ -109,6 +108,7 @@ namespace Lab_Maze
                 Console.WriteLine();
                 Console.CursorLeft += 1;
             }
+            Maze.player.IsGenerated = false;
         }
     }
 }

@@ -11,7 +11,6 @@ namespace Lab_Maze
         static void Main(string[] args)
         {
             new Maze(10, 10).Play();
-            Console.ReadLine();
         }
     }
 }

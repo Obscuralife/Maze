@@ -49,6 +49,7 @@ namespace Lab_Maze
 
             player.X = x;
             player.Y = y;
+            player.IsGenerated = true;
         }
 
         public static void GenerateMaze(Maze maze)
@@ -59,6 +60,7 @@ namespace Lab_Maze
         private static void SetNeighbours(List<ICell> cell)
         {
             var neighbours = new List<ICell>();
+            
             foreach (var item in cell)
             {
                 var cellX = item.X;
@@ -90,7 +92,7 @@ namespace Lab_Maze
                         neighbours.Add(down);
                     }
                 }
-                if (cellX - 1 < Xdim && cellX - 1 >= 0)
+                if (cellX - 1 >= 0)
                 {
                     left = cells[cellY, cellX - 1];
                     if (left is null)
@@ -126,14 +128,14 @@ namespace Lab_Maze
                 case 3:
                 case 4:                
                     {
-                        cell = new Road() { Y = y, X = x }; ;
+                        cell = new Road() { Y = y, X = x };
                         break;
                     }
                 case 5:
                 case 6:
                 case 7:
                     {
-                        cell = new Wall() { Y = y, X = x }; ;
+                        cell = new Wall() { Y = y, X = x };
                         break;
                     }
                 default:

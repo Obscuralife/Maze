@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
+﻿using Lab_Maze.Engines;
 
 namespace Lab_Maze
 {
@@ -12,7 +7,7 @@ namespace Lab_Maze
         public ICell[,] cells;
         public static int Heigth { get; private set; }
         public static int Width { get; private set; }
-        
+
         public static Player player { get; private set; }
         private static Area area;
 
@@ -21,7 +16,7 @@ namespace Lab_Maze
             cells = new ICell[heigth, width];
             Heigth = heigth;
             Width = width;
-            area = Area.GetMazeField(heigth, width);            
+            area = Area.GetMazeArea(heigth, width);            
             player = Player.GetPlayer();
             cells[player.Y, player.X] = player as ICell;
         }
@@ -30,9 +25,14 @@ namespace Lab_Maze
         {
             RenderEngine.RenderRules();
             RenderEngine.RenderArea(area);
-            new Thread(act => RenderEngine.RenderMaze(this)).Start();
+            
+            Generator.GenerateMaze(this);            
+            GameEngine.ButtonHandler(this);
         }
-
+        public  void GenerateAgain()
+        {
+            Generator.GenerateMaze(this);
+        }
 
     }
 }

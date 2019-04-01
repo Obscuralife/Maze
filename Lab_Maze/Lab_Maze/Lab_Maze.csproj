@@ -8,10 +8,11 @@
     <OutputType>Exe</OutputType>
     <RootNamespace>Lab_Maze</RootNamespace>
     <AssemblyName>Lab_Maze</AssemblyName>
-    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -47,6 +48,7 @@
     <Compile Include="Cells\Coin.cs" />
     <Compile Include="Cells\Road.cs" />
     <Compile Include="Cells\Wall.cs" />
+    <Compile Include="Engines\GameEngine.cs" />
     <Compile Include="Engines\Generator.cs" />
     <Compile Include="MazeModel\Maze.cs" />
     <Compile Include="MazeModel\Area.cs" />

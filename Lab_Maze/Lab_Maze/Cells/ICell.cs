@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lab_Maze
 {
-    interface ICell
+    public interface ICell
     {
         int X { get;  set; }
         int Y { get;  set; }

@@ -15,7 +15,7 @@ namespace Lab_Maze
             Heigth = heigth + 2;
             Width = width + 2;
         }
-        public static Area GetMazeField(int heigth = 0, int width = 0)
+        public static Area GetMazeArea(int heigth = 0, int width = 0)
         {
             if (@this is null)
             {
